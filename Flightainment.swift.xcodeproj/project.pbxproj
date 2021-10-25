@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F45A7D522726DE17007D4499 /* AirportsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45A7D512726DE17007D4499 /* AirportsModel.swift */; };
+		F45A7D542726DF2B007D4499 /* FlightAinmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45A7D532726DF2B007D4499 /* FlightAinmentViewModel.swift */; };
+		F45A7D582726EC59007D4499 /* AirportInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45A7D572726EC59007D4499 /* AirportInfoView.swift */; };
+		F45A7D5A2726F01B007D4499 /* TrackerMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45A7D592726F01B007D4499 /* TrackerMapView.swift */; };
 		F4C8FA4D2716001F001FBFF3 /* Flightainment_swiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C8FA4C2716001F001FBFF3 /* Flightainment_swiftApp.swift */; };
 		F4C8FA4F27160020001FBFF3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C8FA4E27160020001FBFF3 /* ContentView.swift */; };
 		F4C8FA5127160031001FBFF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4C8FA5027160031001FBFF3 /* Assets.xcassets */; };
@@ -14,6 +18,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F45A7D512726DE17007D4499 /* AirportsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportsModel.swift; sourceTree = "<group>"; };
+		F45A7D532726DF2B007D4499 /* FlightAinmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightAinmentViewModel.swift; sourceTree = "<group>"; };
+		F45A7D552726E8C6007D4499 /* Flightainment-swift-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Flightainment-swift-Info.plist"; sourceTree = SOURCE_ROOT; };
+		F45A7D572726EC59007D4499 /* AirportInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportInfoView.swift; sourceTree = "<group>"; };
+		F45A7D592726F01B007D4499 /* TrackerMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrackerMapView.swift; path = ../../../../../TrackerMapView.swift; sourceTree = "<group>"; };
 		F4C8FA492716001F001FBFF3 /* Flightainment.swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flightainment.swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C8FA4C2716001F001FBFF3 /* Flightainment_swiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flightainment_swiftApp.swift; sourceTree = "<group>"; };
 		F4C8FA4E27160020001FBFF3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +41,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F45A7D4E2726DC06007D4499 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F45A7D512726DE17007D4499 /* AirportsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F45A7D4F2726DC19007D4499 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F45A7D532726DF2B007D4499 /* FlightAinmentViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F45A7D502726DC22007D4499 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F4C8FA4E27160020001FBFF3 /* ContentView.swift */,
+				F45A7D562726EB9A007D4499 /* Screens */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F45A7D562726EB9A007D4499 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				F45A7D572726EC59007D4499 /* AirportInfoView.swift */,
+				F45A7D592726F01B007D4499 /* TrackerMapView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
 		F4C8FA402716001F001FBFF3 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +94,11 @@
 		F4C8FA4B2716001F001FBFF3 /* Flightainment.swift */ = {
 			isa = PBXGroup;
 			children = (
+				F45A7D552726E8C6007D4499 /* Flightainment-swift-Info.plist */,
 				F4C8FA4C2716001F001FBFF3 /* Flightainment_swiftApp.swift */,
-				F4C8FA4E27160020001FBFF3 /* ContentView.swift */,
+				F45A7D502726DC22007D4499 /* View */,
+				F45A7D4F2726DC19007D4499 /* ViewModel */,
+				F45A7D4E2726DC06007D4499 /* Model */,
 				F4C8FA5027160031001FBFF3 /* Assets.xcassets */,
 				F4C8FA5227160031001FBFF3 /* Preview Content */,
 			);
@@ -137,6 +183,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F45A7D582726EC59007D4499 /* AirportInfoView.swift in Sources */,
+				F45A7D522726DE17007D4499 /* AirportsModel.swift in Sources */,
+				F45A7D5A2726F01B007D4499 /* TrackerMapView.swift in Sources */,
+				F45A7D542726DF2B007D4499 /* FlightAinmentViewModel.swift in Sources */,
 				F4C8FA4F27160020001FBFF3 /* ContentView.swift in Sources */,
 				F4C8FA4D2716001F001FBFF3 /* Flightainment_swiftApp.swift in Sources */,
 			);
@@ -272,6 +322,7 @@
 				DEVELOPMENT_TEAM = 5JLM354JW4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Flightainment-swift-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -302,6 +353,7 @@
 				DEVELOPMENT_TEAM = 5JLM354JW4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Flightainment-swift-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
