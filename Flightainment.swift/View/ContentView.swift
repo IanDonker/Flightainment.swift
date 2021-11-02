@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var viewModel = FlightAinmentViewModel()
-    @State private var search = ""
-    
     var body: some View {
-        NavigationView {
-            List{
-                ForEach(viewModel.airports) { item in
-                    ForEach(item.data) { data in
-                        NavigationLink(destination: AirportInfoView(aiportName: data.airportName, countryName: data.countryName ?? "", iataCode: data.iataCode, latitude: data.latitude, longitude: data.longitude)) {
-                            Text(data.airportName)
-                        }
-                    }
-                    
+        TabView {
+            FlightView()
+                .tabItem {
+                    Label("Flights", systemImage: "paperplane")
                 }
-            }
-            .navigationBarTitle("Airports")
+            
+            AirportsView()
+                .tabItem {
+                    Label("Airports", systemImage: "mappin.and.ellipse")
+                }
+            
+            AirlinesView()
+                .tabItem {
+                    Label("Airlines", systemImage: "briefcase")
+                }
         }
     }
 }

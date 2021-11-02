@@ -1,17 +1,16 @@
 //
-//  FlightAinmentViewModel.swift
+//  AirportsViewModel.swift
 //  Flightainment.swift
 //
 //  Created by Ian Donker on 28/10/2021.
 //
 
 import SwiftUI
-import Combine
 
+class AirporstViewModel: ObservableObject {
+    @Published var airports: [Airports] = []
+    
 
-class FlightAinmentViewModel: ObservableObject {
-    @Published var flights: [FlightData] = []
-    @Published var allData = data
     
     let api = "http://api.aviationstack.com/v1/"
     static let data = ["flights", "airports", "airlines", "airplanes", "cities", "countries"]
@@ -19,25 +18,27 @@ class FlightAinmentViewModel: ObservableObject {
     
     var allflightData: URLComponents {
         get {
-            URLComponents(string: api + FlightAinmentViewModel.data[0] + apiKey)!
+            URLComponents(string: api + FlightAinmentViewModel.data[1] + apiKey)!
         }
     }
     
     init() {
         fetchFlightData { (result) in
             switch result {
-            case .success(let flightData):
+            case .success(let airports):
                 DispatchQueue.main.async {
-                    self.flights.append(flightData)
+                    self.airports.append(airports)
                   }
                 
             case .failure(let error):
                 print("Fetched FlightData with Error: \(error)")
             }
+            
         }
     }
     
-    func fetchFlightData(completion: @escaping (Result<FlightData , Error>) -> Void) {
+    
+    func fetchFlightData(completion: @escaping (Result<Airports , Error>) -> Void) {
     let urlComponents = allflightData
 
     let task = URLSession.shared.dataTask(with: urlComponents.url!) {
@@ -45,7 +46,7 @@ class FlightAinmentViewModel: ObservableObject {
         let jsonDecoder = JSONDecoder()
         if let data = data {
             do {
-                let flightData = try jsonDecoder.decode(FlightData.self, from: data)
+                let flightData = try jsonDecoder.decode(Airports.self, from: data)
                 completion(.success(flightData))
             } catch {
                 completion(.failure(error))
@@ -56,7 +57,4 @@ class FlightAinmentViewModel: ObservableObject {
     }
     task.resume()
     }
-    
-    
 }
-

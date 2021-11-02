@@ -9,51 +9,40 @@ import SwiftUI
 import MapKit
 
 struct AirportInfoView: View {
-    var aiportName: String
+    var airportName: String
     var countryName: String
     var iataCode: String
-    var latitude: String
-    var longitude: String
+    var lat: String
+    var long: String
     
+    var latitude: Double {
+        let latitude = Double(lat)
+        return latitude ?? 0.0
+    }
     
+    var longitude: Double {
+        let longitude = Double(long)
+        return longitude ?? 0.0
+    }
     
     var body: some View {
-        
         VStack {
-            Text(countryName)
             Text(iataCode)
-            TrackerMapView(lat: lat, lon: lon)
+            Text(countryName)
+            Map(coordinateRegion: .constant(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))), interactionModes: [])
         }
         .padding()
-        .navigationBarTitle(aiportName)
+        .navigationBarTitle(airportName)
         .navigationBarTitleDisplayMode(.inline)
     }
-    
-    var lat: Double {
-        let lat = Double(latitude) ?? 0
-        return lat
-    }
-    var lon: Double {
-        let lon = Double(longitude) ?? 0
-        return lon
-    }
-    
-    
-//    func stringToDouble(name: String) -><Double> {
-//        let formatter = NumberFormatter()
-//        formatter.locale = Locale.current
-//        formatter.numberStyle = .decimal
-//
-//        return lon = formatter.number(from: name)
-//
-//    }
 }
+    
 
-//struct AirportInfoView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NavigationView {
-//            AirportInfoView(aiportName: "Amsterdam", countryName: "Netherlands", iataCode: "Ams", latitude: .constant(51.9436445), longitude: .constant(4.4704739))
-//
-//        }
-//    }
-//}
+struct AirportInfoView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            AirportInfoView(airportName: "Amsterdam", countryName: "Netherlands", iataCode: "Ams", lat: "", long: "")
+
+        }
+    }
+}

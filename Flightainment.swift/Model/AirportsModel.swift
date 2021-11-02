@@ -12,15 +12,14 @@ struct Airports: Identifiable, Codable {
     let pagination: AirportsPagination
     let data: [AirportsData]
     
+    
     enum CodingKeys: CodingKey {
         case pagination, data
     }
-    
-    
 }
 
 // MARK: - Datum
-struct AirportsData: Identifiable, Codable {
+struct AirportsData: Identifiable, Codable, Comparable {
     let id: String
     let gmt: String?
     let airportID, iataCode: String
@@ -30,7 +29,11 @@ struct AirportsData: Identifiable, Codable {
     let countryName: String?
     let phoneNumber: String?
     let timezone: String
-
+    
+    static func < (lhs: AirportsData, rhs: AirportsData) -> Bool {
+        lhs.airportName < rhs.airportName
+    }
+    
     enum CodingKeys: String, CodingKey {
         case id, gmt
         case airportID = "airport_id"
@@ -52,21 +55,3 @@ struct AirportsPagination: Codable {
     let offset, limit, count, total: Int
 }
 
-enum StringToDouble: Codable {
-    
-    case double(Double)
-    
-    init(from decoder: Decoder) throws {
-        if let double = try?
-            decoder.singleValueContainer().decode(Double.self) {
-            self = .double(double)
-            return
-        }
-       
-        
-        throw Error.couldNotFindStringOrDouble
-}
-    enum Error: Swift.Error {
-        case couldNotFindStringOrDouble
-    }
-}
